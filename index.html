@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Unpacking the Classroom</title>
+<style>
+html { scroll-behavior: smooth; }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+  color: #333;
+}
+header {
+  background: #2c3e50;
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+  animation: fadeIn 2s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+nav {
+  background: #34495e;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: #f39c12;
+}
+main {
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+}
+section {
+  margin-bottom: 3rem;
+}
+footer {
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+.quiz-section, .concept-box {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+.prompt-box {
+  perspective: 1000px;
+  margin-bottom: 1.5rem;
+}
+.prompt-box .card {
+  background: white;
+  border-left: 5px solid #3498db;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+.prompt-box:hover .card {
+  transform: rotateY(180deg);
+}
+.prompt-box .card-content {
+  position: relative;
+  height: 100px;
+  transform-style: preserve-3d;
+}
+.prompt-box .front, .prompt-box .back {
+  position: absolute;
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.prompt-box .back {
+  transform: rotateY(180deg);
+  background: #ecf0f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.quiz-question { margin-bottom: 1rem; }
+.quiz-result { font-weight: bold; margin-top: 1rem; }
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+button:hover { background-color: #2980b9; }
+img.gallery {
+  width: 100%;
+  max-width: 600px;
+  margin: 1rem 0;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Unpacking the Classroom</h1>
+  <p>A Student’s Guide to Power, Resistance, and Recognition in Education</p>
+</header>
+
+<nav>
+  <a href="#concepts">Concepts</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#prompts">Prompts</a>
+  <a href="#theory">Theory</a>
+  <a href="#quiz">Quiz</a>
+</nav>
+
+<main>
+<section id="concepts">
+  <h2>Key Concepts</h2>
+  <div class="concept-box"><strong>Authority:</strong> How power operates in classroom rules and hierarchy.</div>
+  <div class="concept-box"><strong>Recognition:</strong> Who gets acknowledged and whose knowledge counts?</div>
+  <div class="concept-box"><strong>Resistance:</strong> How students subtly or overtly push back.</div>
+  <div class="concept-box"><strong>Reproduction:</strong> How schools reinforce social norms and inequality.</div>
+  <div class="concept-box"><strong>Alienation:</strong> When students feel disconnected or unseen.</div>
+</section>
+
+<section id="gallery">
+  <h2>Photo Gallery</h2>
+  <div class="prompt-box">
+    <div class="card">
+      <div class="card-content">
+        <div class="front">
+          <img class="gallery" src="images/do-not-enter.jpg" alt="Do Not Enter sign - Authority" />
+        </div>
+        <div class="back">
+          <p><strong>Authority:</strong> This construction barrier and signage represent enforced boundaries and control—mirroring how schools manage student behavior through rules and restricted access.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="prompt-box">
+    <div class="card">
+      <div class="card-content">
+        <div class="front">
+          <img class="gallery" src="images/students-walking.jpg" alt="Students walking - Reproduction" />
+        </div>
+        <div class="back">
+          <p><strong>Reproduction:</strong> The organized flow of students walking in similar directions reflects how school routines normalize order and reinforce structured behaviors in daily academic life.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="prompt-box">
+    <div class="card">
+      <div class="card-content">
+        <div class="front">
+          <img class="gallery" src="images/gathering-house.jpg" alt="First Peoples Gathering House - Recognition" />
+        </div>
+        <div class="back">
+          <p><strong>Recognition:</strong> The First Peoples’ Gathering House acknowledges Indigenous presence and culture, offering a visual counterpoint to curriculum that often centers Western knowledge.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="prompts">
+  <h2>Critical Inquiry Prompts</h2>
+  <div class="prompt-box">
+    <div class="card">
+      <div class="card-content">
+        <div class="front">When did school make you feel unseen or unheard?</div>
+        <div class="back">Think about moments of silence, mispronounced names, or being overlooked in class.</div>
+      </div>
+    </div>
+  </div>
+  <div class="prompt-box">
+    <div class="card">
+      <div class="card-content">
+        <div class="front">What classroom rule went unquestioned, but shaped your behaviour?</div>
+        <div class="back">Rules like bathroom passes, assigned seating, or dress codes train compliance.</div>
+      </div>
+    </div>
+  </div>
+  <div class="prompt-box">
+    <div class="card">
+      <div class="card-content">
+        <div class="front">What does resistance look like in quiet forms?</div>
+        <div class="back">It could be body language, silence, artistic expression, or humour.</div>
+      </div>
+    </div>
+  </div>
+  <div class="prompt-box">
+    <div class="card">
+      <div class="card-content">
+        <div class="front">Have you ever challenged authority without even meaning to?</div>
+        <div class="back">Reflect on being honest, asking tough questions, or refusing to follow norms.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="theory">
+  <h2>Theory in Context</h2>
+  <div class="concept-box"><strong>bell hooks:</strong> Advocated for education as a practice of freedom. She believed classrooms should be sites of critical thinking and mutual respect rather than control.</div>
+  <div class="concept-box"><strong>Pierre Bourdieu:</strong> Introduced the idea of cultural capital and how schools reproduce existing class structures. He showed how "success" often favors students who already possess dominant forms of knowledge or behavior.</div>
+  <div class="concept-box"><strong>Ivan Illich:</strong> Critiqued institutionalized education in <em>Deschooling Society</em>. He argued that formal schooling often reinforces dependency rather than critical autonomy.</div>
+  <div class="concept-box"><strong>Paulo Freire:</strong> Developed the concept of "critical pedagogy" and the banking model of education. He advocated for dialogical learning where students and teachers learn together in pursuit of liberation.</div>
+</section>
+
+<section id="quiz" class="quiz-section">
+  <h2>Quick Knowledge Check</h2>
+  <form id="quizForm">
+    <div class="quiz-question">
+      <p><strong>1. Which of the following are examples of resistance in education? (Choose all that apply)</strong></p>
+      <label><input type="checkbox" name="q1" value="a"> A student refusing to follow the dress code</label><br>
+      <label><input type="checkbox" name="q1" value="b"> Students being graded on tests</label><br>
+      <label><input type="checkbox" name="q1" value="c"> Silent protest during school assembly</label><br>
+      <label><input type="checkbox" name="q1" value="d"> Participating in a school pep rally</label>
+    </div>
+    <div class="quiz-question">
+      <p><strong>2. What does the concept of recognition relate to in the classroom?</strong></p>
+      <label><input type="radio" name="q2" value="a"> Ensuring all students are marked fairly on exams</label><br>
+      <label><input type="radio" name="q2" value="b"> Making sure students are acknowledged and their identities respected</label><br>
+      <label><input type="radio" name="q2" value="c"> Tracking students by academic ability</label><br>
+      <label><input type="radio" name="q2" value="d"> Removing distractions in class</label>
+    </div>
+    <div class="quiz-question">
+      <p><strong>3. Which practices reflect the reproduction of social norms in schools? (Choose all that apply)</strong></p>
+      <label><input type="checkbox" name="q3" value="a"> Requiring uniforms</label><br>
+      <label><input type="checkbox" name="q3" value="b"> Using open discussions for class participation</label><br>
+      <label><input type="checkbox" name="q3" value="c"> Tracking students into advanced and regular classes</label><br>
+      <label><input type="checkbox" name="q3" value="d"> Encouraging students to share personal stories</label>
+    </div>
+    <button type="button" onclick="checkQuiz()">Submit</button>
+    <p id="quizResult" class="quiz-result"></p>
+  </form>
+</section>
+</main>
+
+<footer>
+  <p>&copy; 2025 John Li | EDUC Final Project</p>
+</footer>
+
+<script>
+function checkQuiz() {
+  const q1Correct = ['a', 'c'];
+  const q3Correct = ['a', 'c'];
+  const q1Selected = Array.from(document.querySelectorAll('input[name="q1"]:checked')).map(cb => cb.value);
+  const q2Selected = document.querySelector('input[name="q2"]:checked')?.value;
+  const q3Selected = Array.from(document.querySelectorAll('input[name="q3"]:checked')).map(cb => cb.value);
+  let score = 0;
+  const q1Right = q1Selected.length === q1Correct.length && q1Selected.every(val => q1Correct.includes(val));
+  const q2Right = q2Selected === 'b';
+  const q3Right = q3Selected.length === q3Correct.length && q3Selected.every(val => q3Correct.includes(val));
+  if (q1Right) score++;
+  if (q2Right) score++;
+  if (q3Right) score++;
+  const result = document.getElementById("quizResult");
+  if (score < 3) {
+    result.innerHTML = `You scored ${score} out of 3. <br><a href='#concepts'>Review the Concepts section</a> and try again.`;
+  } else {
+    result.textContent = `✅ Great job! You scored ${score} out of 3.`;
+  }
+}
+</script>
+</body>
+</html>
