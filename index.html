@@ -5,188 +5,121 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Unpacking the Classroom</title>
 <style>
-html { scroll-behavior: smooth; }
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f5f5f5;
-  color: #333;
-}
-header {
-  background: #2c3e50;
-  color: white;
-  padding: 2rem 1rem;
-  text-align: center;
-  animation: fadeIn 2s ease-out;
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-nav {
-  background: #34495e;
-  padding: 0.5rem;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-nav a:hover {
-  color: #f39c12;
-}
-main {
-  padding: 2rem;
-  max-width: 900px;
-  margin: auto;
-}
-section {
-  margin-bottom: 3rem;
-}
-footer {
-  background: #2c3e50;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
-}
-.quiz-section, .concept-box {
-  background: #fff;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  margin-bottom: 2rem;
-}
-.prompt-box {
-  perspective: 1000px;
-  margin-bottom: 1.5rem;
-}
-.prompt-box .card {
-  background: white;
-  border-left: 5px solid #3498db;
-  padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  cursor: pointer;
-}
-.prompt-box:hover .card {
-  transform: rotateY(180deg);
-}
-.prompt-box .card-content {
-  position: relative;
-  height: 100px;
-  transform-style: preserve-3d;
-}
-.prompt-box .front, .prompt-box .back {
-  position: absolute;
-  backface-visibility: hidden;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-.prompt-box .back {
-  transform: rotateY(180deg);
-  background: #ecf0f1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-}
-.quiz-question { margin-bottom: 1rem; }
-.quiz-result { font-weight: bold; margin-top: 1rem; }
-button {
-  background-color: #3498db;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-button:hover { background-color: #2980b9; }
-img.gallery {
-  width: 100%;
-  max-width: 600px;
-  margin: 1rem 0;
-  display: block;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+    color: #333;
+  }
+  header {
+    background: #2c3e50;
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+  nav {
+    background: #34495e;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  nav a:hover { color: #f39c12; }
+  main { padding: 2rem; max-width: 1000px; margin: auto; }
+  section { margin-bottom: 3rem; }
+  footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+  .box, .quiz-section, .concept-box {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+  }
+  .concept-box { border-left: 4px solid #ccc; }
+  .prompt-box { perspective: 1000px; margin-bottom: 1.2rem; }
+  .prompt-box .card {
+    background: white;
+    border-left: 5px solid #3498db;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+  }
+  .prompt-box:hover .card { transform: rotateY(180deg); }
+  .prompt-box .card-content { position: relative; min-height: 110px; transform-style: preserve-3d; }
+  .prompt-box .front, .prompt-box .back {
+    position: absolute; backface-visibility: hidden; width: 100%; height: 100%; top: 0; left: 0;
+  }
+  .prompt-box .back {
+    transform: rotateY(180deg);
+    background: #ecf0f1;
+    display: flex; align-items: center; justify-content: center; padding: 1rem;
+  }
+  /* Flip Card Gallery */
+  #gallery { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; }
+  .flip-card { background: transparent; width: 320px; height: 210px; perspective: 1000px; }
+  .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; }
+  .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+  .flip-card-front, .flip-card-back {
+    position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border: 1px solid #ccc; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  .flip-card-front img { width: 100%; height: 100%; object-fit: cover; }
+  .flip-card-back { background: #f1f1f1; transform: rotateY(180deg); padding: 14px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+  .cite { font-size: 0.9em; color: #555; }
+  .refs li { margin-bottom: 0.6rem; }
+  @media (max-width: 720px) {
+    #gallery { justify-content: center; }
+    .flip-card { width: 100%; max-width: 360px; }
+  }
 </style>
 </head>
 <body>
 <header>
   <h1>Unpacking the Classroom</h1>
-  <p>A Student’s Guide to Power, Resistance, and Recognition in Education</p>
+  <p>A Student’s Guide to Power, Recognition, Resistance, and Reproduction in Education</p>
 </header>
 
 <nav>
   <a href="#concepts">Concepts</a>
-  <a href="#gallery">Gallery</a>
   <a href="#prompts">Prompts</a>
   <a href="#theory">Theory</a>
+  <a href="#gallery">Gallery</a>
   <a href="#quiz">Quiz</a>
+  <a href="#references">References</a>
 </nav>
 
 <main>
-<section id="concepts">
-  <h2>Key Concepts</h2>
-  <div class="concept-box"><strong>Authority:</strong> How power operates in classroom rules and hierarchy.</div>
-  <div class="concept-box"><strong>Recognition:</strong> Who gets acknowledged and whose knowledge counts?</div>
-  <div class="concept-box"><strong>Resistance:</strong> How students subtly or overtly push back.</div>
-  <div class="concept-box"><strong>Reproduction:</strong> How schools reinforce social norms and inequality.</div>
-  <div class="concept-box"><strong>Alienation:</strong> When students feel disconnected or unseen.</div>
-</section>
+  <!-- Concepts -->
+  <section id="concepts">
+    <h2>Key Concepts</h2>
+    <h5>How each concept relates to school</h5>
+    <div class="concept-box"><strong>Authority:</strong> How power operates in classroom rules and hierarchy.</div>
+    <div class="concept-box"><strong>Reproduction:</strong> How schools reinforce social norms and inequality.</div>
+    <div class="concept-box"><strong>Alienation:</strong> When students feel disconnected or unseen.</div>
+    <div class="concept-box"><strong>Recognition:</strong> Who gets acknowledged and whose knowledge counts</div>
+    <div class="concept-box"><strong>Resistance:</strong> How students subtly or overtly push back.</div>
+    </div>
+  </section>
 
-<section id="gallery">
-  <h2>Photo Gallery</h2>
-  <div class="prompt-box">
-    <div class="card">
-      <div class="card-content">
-        <div class="front">
-          <img class="gallery" src="images/do-not-enter.jpg" alt="Do Not Enter sign - Authority" />
-        </div>
-        <div class="back">
-          <p><strong>Authority:</strong> This construction barrier and signage represent enforced boundaries and control—mirroring how schools manage student behavior through rules and restricted access.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="prompt-box">
-    <div class="card">
-      <div class="card-content">
-        <div class="front">
-          <img class="gallery" src="images/students-walking.jpg" alt="Students walking - Reproduction" />
-        </div>
-        <div class="back">
-          <p><strong>Reproduction:</strong> The organized flow of students walking in similar directions reflects how school routines normalize order and reinforce structured behaviors in daily academic life.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="prompt-box">
-    <div class="card">
-      <div class="card-content">
-        <div class="front">
-          <img class="gallery" src="images/gathering-house.jpg" alt="First Peoples Gathering House - Recognition" />
-        </div>
-        <div class="back">
-          <p><strong>Recognition:</strong> The First Peoples’ Gathering House acknowledges Indigenous presence and culture, offering a visual counterpoint to curriculum that often centers Western knowledge.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="prompts">
+  <!-- Prompts -->
+  <section id="prompts">
   <h2>Critical Inquiry Prompts</h2>
+  <h5>Questions to guide reflection and discussion</h5>
   <div class="prompt-box">
     <div class="card">
       <div class="card-content">
@@ -221,15 +154,68 @@ img.gallery {
   </div>
 </section>
 
-<section id="theory">
-  <h2>Theory in Context</h2>
-  <div class="concept-box"><strong>bell hooks:</strong> Advocated for education as a practice of freedom. She believed classrooms should be sites of critical thinking and mutual respect rather than control.</div>
-  <div class="concept-box"><strong>Pierre Bourdieu:</strong> Introduced the idea of cultural capital and how schools reproduce existing class structures. He showed how "success" often favors students who already possess dominant forms of knowledge or behavior.</div>
-  <div class="concept-box"><strong>Ivan Illich:</strong> Critiqued institutionalized education in <em>Deschooling Society</em>. He argued that formal schooling often reinforces dependency rather than critical autonomy.</div>
-  <div class="concept-box"><strong>Paulo Freire:</strong> Developed the concept of "critical pedagogy" and the banking model of education. He advocated for dialogical learning where students and teachers learn together in pursuit of liberation.</div>
-</section>
 
-<section id="quiz" class="quiz-section">
+  <!-- Theory -->
+  <section id="theory">
+    <h2>Theory in Context</h2>
+    <h5>How the theory applies to real-world situations</h5>
+    <div class="concept-box"><strong>Nancy Fraser (2000).</strong> Recognition is about justice in cultural value—who is seen and respected. Misrecognition harms participation.
+      <div class="cite">Used here to frame inclusive classrooms and student voice.</div>
+    </div>
+    <div class="concept-box"><strong>Henry A. Giroux (1983).</strong> Students resist schooling through culture, discourse, and practice; educators can read these as political acts.
+      <div class="cite">Informs prompts and quiz items on resistance.</div>
+    </div>
+    <div class="concept-box"><strong>Michael W. Apple (1979).</strong> School knowledge and routines reproduce inequalities unless critically examined.
+      <div class="cite">Guides analysis of uniforms, tracking, and testing.</div>
+    </div>
+    <div class="concept-box"><strong>Michel Foucault (1977).</strong> Discipline organizes bodies and time; schools operate through surveillance and normalization.
+      <div class="cite">Connects to spatial rules and authority on campus.</div>
+    </div>
+    <div class="concept-box"><strong>Karl Marx (1844/1978).</strong> Alienation occurs when individuals are separated from the products of their labor, the process of work, their own potential, and from others.
+    <div class="cite"> Frames discussion of student disconnection from learning, purpose, and community.</div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <h2>Image Reflections</h2><br><br><br>
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="images/gathering-house.jpg" alt="First Peoples' Gathering House at SFU" />
+        </div>
+        <div class="flip-card-back">
+          <p><strong>Recognition:</strong> This image represents recognition of Indigenous culture and space on campus. It aligns with efforts to address historical erasure and foster inclusive learning environments.</p>
+        </div>
+      </div>
+    </div><br>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="images/students-walking.jpg" alt="Students walking on campus" />
+        </div>
+        <div class="flip-card-back">
+          <p><strong>Authority:</strong>This image invites reflection on authority and uniformity in daily student routines—how structure and movement on campus reflect institutional control or autonomy.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="images/do-not-enter.jpg" alt="Construction barrier with Do Not Enter sign" />
+        </div>
+        <div class="flip-card-back">
+          <p><strong>Reproduction / Resistance:</strong>This sign acts as a metaphor for exclusion and power dynamics. Who gets access to space, and what barriers (physical or symbolic) are in place in education?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiz -->
+  <section id="quiz" class="quiz-section">
   <h2>Quick Knowledge Check</h2>
   <form id="quizForm">
     <div class="quiz-question">
@@ -239,6 +225,7 @@ img.gallery {
       <label><input type="checkbox" name="q1" value="c"> Silent protest during school assembly</label><br>
       <label><input type="checkbox" name="q1" value="d"> Participating in a school pep rally</label>
     </div>
+
     <div class="quiz-question">
       <p><strong>2. What does the concept of recognition relate to in the classroom?</strong></p>
       <label><input type="radio" name="q2" value="a"> Ensuring all students are marked fairly on exams</label><br>
@@ -246,6 +233,7 @@ img.gallery {
       <label><input type="radio" name="q2" value="c"> Tracking students by academic ability</label><br>
       <label><input type="radio" name="q2" value="d"> Removing distractions in class</label>
     </div>
+
     <div class="quiz-question">
       <p><strong>3. Which practices reflect the reproduction of social norms in schools? (Choose all that apply)</strong></p>
       <label><input type="checkbox" name="q3" value="a"> Requiring uniforms</label><br>
@@ -253,10 +241,31 @@ img.gallery {
       <label><input type="checkbox" name="q3" value="c"> Tracking students into advanced and regular classes</label><br>
       <label><input type="checkbox" name="q3" value="d"> Encouraging students to share personal stories</label>
     </div>
+
+    <div class="quiz-question">
+      <p><strong>4. Which situation best illustrates Marx's concept of alienation in education?</strong></p>
+      <label><input type="radio" name="q4" value="a"> A student feeling proud of their project and sharing it with peers</label><br>
+      <label><input type="radio" name="q4" value="b"> A student memorizing material for a test without understanding its purpose</label><br>
+      <label><input type="radio" name="q4" value="c"> A class working together on a collaborative art project</label><br>
+      <label><input type="radio" name="q4" value="d"> Students debating a topic they care about in class</label>
+    </div>
+
     <button type="button" onclick="checkQuiz()">Submit</button>
     <p id="quizResult" class="quiz-result"></p>
   </form>
 </section>
+
+  <!-- References -->
+  <section id="references" class="box">
+    <h2>References</h2>
+    <ul class="refs">
+      <li>Apple, M. W. (1979). <em>Ideology and curriculum</em>. Routledge &amp; Kegan Paul.</li>
+      <li>Foucault, M. (1977). <em>Discipline and punish: The birth of the prison</em>. Pantheon Books.</li>
+      <li>Fraser, N. (2000). Rethinking recognition. <em>New Left Review, 3</em>, 107–120.</li>
+      <li>Giroux, H. A. (1983). <em>Theory and resistance in education: A pedagogy for the opposition</em>. Bergin &amp; Garvey.</li>
+      <li>Marx, K. (1978). Economic and philosophical manuscripts of 1844. In R. C. Tucker (Ed.), The Marx-Engels reader (2nd ed., pp. 66–125). W. W. Norton & Company. (Original work published 1844)</li>
+    </ul>
+  </section>
 </main>
 
 <footer>
@@ -265,23 +274,37 @@ img.gallery {
 
 <script>
 function checkQuiz() {
-  const q1Correct = ['a', 'c'];
-  const q3Correct = ['a', 'c'];
-  const q1Selected = Array.from(document.querySelectorAll('input[name="q1"]:checked')).map(cb => cb.value);
-  const q2Selected = document.querySelector('input[name="q2"]:checked')?.value;
-  const q3Selected = Array.from(document.querySelectorAll('input[name="q3"]:checked')).map(cb => cb.value);
+  // Correct answers
+  const q1Correct = new Set(['a', 'c']); // multiple select
+  const q2Correct = 'b';                 // radio
+  const q3Correct = new Set(['a', 'c']); // multiple select
+  const q4Correct = 'b';                 // radio
+
+  // Selections
+  const q1Selected = Array.from(document.querySelectorAll('input[name="q1"]:checked')).map(el => el.value);
+  const q2Selected = document.querySelector('input[name="q2"]:checked')?.value || null;
+  const q3Selected = Array.from(document.querySelectorAll('input[name="q3"]:checked')).map(el => el.value);
+  const q4Selected = document.querySelector('input[name="q4"]:checked')?.value || null;
+
+  // Check correctness
+  const q1Right = q1Selected.length === q1Correct.size && q1Selected.every(v => q1Correct.has(v));
+  const q2Right = q2Selected === q2Correct;
+  const q3Right = q3Selected.length === q3Correct.size && q3Selected.every(v => q3Correct.has(v));
+  const q4Right = q4Selected === q4Correct;
+
+  // Score
   let score = 0;
-  const q1Right = q1Selected.length === q1Correct.length && q1Selected.every(val => q1Correct.includes(val));
-  const q2Right = q2Selected === 'b';
-  const q3Right = q3Selected.length === q3Correct.length && q3Selected.every(val => q3Correct.includes(val));
   if (q1Right) score++;
   if (q2Right) score++;
   if (q3Right) score++;
-  const result = document.getElementById("quizResult");
-  if (score < 3) {
-    result.innerHTML = `You scored ${score} out of 3. <br><a href='#concepts'>Review the Concepts section</a> and try again.`;
+  if (q4Right) score++;
+
+  // Result
+  const result = document.getElementById('quizResult');
+  if (score < 4) {
+    result.innerHTML = `You scored ${score} out of 4. <br><a href="#theory">Review the Theory section</a> and try again.`;
   } else {
-    result.textContent = `✅ Great job! You scored ${score} out of 3.`;
+    result.textContent = `✅ Great job! You scored ${score} out of 4.`;
   }
 }
 </script>
